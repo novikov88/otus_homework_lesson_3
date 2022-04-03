@@ -2,14 +2,18 @@ from src.Figure import Figure
 
 
 class Square(Figure):
-    def __init__(self, name, a):
-        super().__init__(name, a, a, a, a)
-        self.a = a
+    def __init__(self, side):
+        self.side = side
+        if not isinstance(self.side, (int, float)):
+            raise ValueError('Значение не является числом')
+        elif self.side < 0:
+            raise ValueError('Значение не может быть отрицательным')
+        self.name = 'square'
 
+    @property
+    def area(self):
+        return self.side ** 2
+
+    @property
     def perimeter(self):
-        return 4 * self.a
-
-
-square = Square('sq1', 3)
-print(square.area())
-print(square.perimeter())
+        return 4 * self.side

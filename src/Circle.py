@@ -3,17 +3,18 @@ from src.Figure import Figure
 
 
 class Circle(Figure):
-    def __init__(self, name, a):
-        super().__init__(name, a, a, a, a)
-        self.a = a
+    def __init__(self, side1):
+        self.side1 = side1
+        if not isinstance(self.side1, (int, float)):
+            raise ValueError('Значение не является числом')
+        elif self.side1 < 0:
+            raise ValueError('Значение не может быть отрицательным')
+        self.name = 'circle'
 
+    @property
     def area(self):
-        return math.pi * (self.a ** 2)
+        return math.pi * (self.side1 ** 2)
 
+    @property
     def perimeter(self):
-        return 2 * math.pi * self.a
-
-
-circle = Circle('cir1', 10)
-print(circle.area())
-print(circle.perimeter())
+        return 2 * math.pi * self.side1

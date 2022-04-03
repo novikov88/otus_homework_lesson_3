@@ -1,10 +1,6 @@
 class Figure:
-    def __init__(self, name, a, b, c, d):
-        self.name = name
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-
-    def area(self):
-        return self.a ** 2
+    def add_area(self, name):
+        if isinstance(name, Figure):
+            return self.area + name.area
+        else:
+            raise ValueError("ValueError Incorrect class")
