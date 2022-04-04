@@ -2,6 +2,7 @@ from math import sqrt
 from src.Figure import Figure
 
 
+# класс треугольник наследник класса Фигура
 class Triangle(Figure):
     def __init__(self, side1, side2, side3):
         self.side1 = side1
@@ -14,11 +15,13 @@ class Triangle(Figure):
             raise ValueError('Значение не является числом')
         self.name = 'triangle'
 
+    # метод расчета площади фигуры
     @property
     def area(self):
         p = (self.side1 + self.side2 + self.side3) / 2
         return sqrt(p * (p - self.side1) * (p - self.side2) * (p - self.side3))
 
+    # метод расчета периметра фигуры
     @property
     def perimeter(self):
         return self.side1 + self.side2 + self.side3
