@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/
+
+# Experimental and support files
+.experimental_file.py
+experimental_file.py
